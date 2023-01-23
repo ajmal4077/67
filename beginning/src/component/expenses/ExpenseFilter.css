@@ -1,0 +1,37 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.expenses-filter
+{
+    display: inline;
+    background-color: black;
+}
+.expenses-filter label
+{
+    display: inline-block;
+    text-align: left;
+    margin-right: 0;
+    font-style: italic;
+    font-weight: 500;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border-radius: 15px;
+}
+.expenses-filter select{
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin-left: -1px;
+    border-color: black;
+    border-radius: 15px;
+}
+.expenses-filter_control
+{
+    display: flex;
+    justify-content: center;
+    margin: auto 65px;
+}
