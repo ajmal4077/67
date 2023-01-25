@@ -8,21 +8,27 @@ function Expenses(props) {
   const [filteredYear,setFilteredYear]=useState('2019')
 
   const filterImportFunction=(selectedYear)=>{
-    console.log("data passed to expenses "+selectedYear);
     setFilteredYear(selectedYear)
   }
-  console.log(filteredYear);
+  const filteredExpenses=props.items.filter(event=>{
+    return event.expenseDate.getFullYear().toString()===filteredYear
+  })
+  console.log(filteredExpenses);
   return (
     <Card className='expenses'>
       <ExpenseFilter selected={filteredYear} onFilter={filterImportFunction}/>
-      {props.items.map(event=>{
-        return (<ExpenseItem
-          date={event.expenseDate}
-          title={event.expenseTitle}
-          money={event.expenseAmount}
-          key={event.id}/>) 
-      })}
- 
+      {filteredExpenses.length===0 &&<p>no data found</p>}
+      {filteredExpenses.length>0&&
+        filteredExpenses.map(event=>{
+          return (<ExpenseItem
+            date={event.expenseDate}
+            title={event.expenseTitle}
+            money={event.expenseAmount}
+            key={event.id}/>
+                  ) 
+     })}
+     
+
     </Card>
   )
 }
